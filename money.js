@@ -3,6 +3,20 @@ document.getElementById("deposit-button").addEventListener('click',function(){
     const depositInputString = depositInput.value;
     const newDeposit = parseFloat(depositInputString);
     depositInput.value = '';
+    if(isNaN(newDeposit)){
+        document.getElementById('myAudio').play();
+        alert('enter a number');
+
+        document.getElementById('myAudio').pause();
+        return;
+    }
+    if(newDeposit < 0 ){
+        document.getElementById('myAudio').play();
+        alert('enter a positive number');
+
+        document.getElementById('myAudio').pause();
+        return;
+    }
     
     const depositAmound = document.getElementById('deposit-total');
     const depositAmoundString = depositAmound.innerText;
@@ -22,16 +36,31 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
     const withdrawInputString = withdrawInput.value;
     const newWithdrawInput = parseFloat(withdrawInputString);
     withdrawInput.value = '';
+    if(isNaN(newWithdrawInput)){
+        document.getElementById('myAudio').play();
+        alert('enter a number');
 
+        document.getElementById('myAudio').pause();
+        return;
+    }
+    if(newWithdrawInput < 0 ){
+        document.getElementById('myAudio').play();
+        alert('enter a positive number');
+        
+        document.getElementById('myAudio').pause();
+        return;
+    }
+    
     const withdrawAmount = document.getElementById('withdraw-total');
     const withdrawAmountString = withdrawAmount.innerText;
     const newWithdrawAmount = parseFloat(withdrawAmountString);
-    const currentWithdrawAmount = newWithdrawInput + newWithdrawAmount;
+    const currentWithdrawAmount =newWithdrawAmount + newWithdrawInput;
     withdrawAmount.innerText = currentWithdrawAmount;
+    
 
     const afterWithdrawAmount = document.getElementById('total-amound');
     const afterWithdrawAmountString = afterWithdrawAmount.innerText;
     const newAfterWithdrawAmount = parseFloat(afterWithdrawAmountString);
-    const currenTotalAmount = newAfterWithdrawAmount - newWithdrawAmount;
+    const currenTotalAmount = newAfterWithdrawAmount - currentWithdrawAmount;
     afterWithdrawAmount.innerText = currenTotalAmount
 })

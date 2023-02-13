@@ -1,5 +1,5 @@
 document.getElementById('login-btn').addEventListener('click',function(){
-   const inputfeild = document.getElementById('login-btn');
+   const inputfeild = document.getElementById('input-email');
    const email = inputfeild.value;
    const secoundInputFeild = document.getElementById('input-password');
    const password = secoundInputFeild.value;
